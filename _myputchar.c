@@ -4,7 +4,7 @@
 /**
  * _myputchar - prints character value represented by c
  * @c: int value representing the character to print
- * Return: 0 on success or -1 for an error
+ * Return: 2 on success or -1 for an error
  */
 
 int _myputchar(int c)
@@ -16,5 +16,5 @@ int _myputchar(int c)
 		perror("Error writting character");
 		return (-1);
 	}
-	return (0);
+	return (2);
 }
