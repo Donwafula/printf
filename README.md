@@ -19,7 +19,7 @@ All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options
 <br>All your files should end with a new line.
 No more than 5 functions per file.
 You are not allowed to use global variables.
-The prototypes of all your functions should be included in your header file called holberton.h
+The prototypes of all your functions should be included in your header file called main.h
 All your header files should be include guarded.
 <h3>Authorized functions and macros</h3>
 <li>write (man 2 write)
