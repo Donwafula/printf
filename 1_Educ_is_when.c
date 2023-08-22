@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
                     }
 
                     /* Handle the digits of the number */
-                    int divisor = 1;
+                    
                     while (num / divisor > 9)
                     {
                          divisor *= 10;
@@ -95,7 +95,5 @@ int _myputchar(char c)
 }
 
 /* Helper function to print an integer */
-int print_number(int num)
-{
-     return 0; /* Return value doesn't matter here */
-}
+
+return 0; /* Return value doesn't matter here */
