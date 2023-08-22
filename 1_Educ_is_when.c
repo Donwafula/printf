@@ -40,11 +40,8 @@ int _printf(const char *format, ...)
                }
                else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
-                    int num = va_arg(args, int);
-                    /* Declare the divisor at the beginning of the block */
-                    int divisor = 1;
-
                     /* Handle negative numbers */
+                    int num = va_arg(args, int);
                     if (num < 0)
                     {
                          _myputchar('-');
@@ -52,6 +49,7 @@ int _printf(const char *format, ...)
                     }
 
                     /* Handle the digits of the number */
+                    int divisor = 1;
                     while (num / divisor > 9)
                     {
                          divisor *= 10;
