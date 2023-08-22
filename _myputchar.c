@@ -1,11 +1,9 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _myputchar - writes c to stdout
+ * @c: char to print
+ * Return: On success 1 or -1
  */
 int _myputchar(char c)
 {
@@ -13,24 +11,23 @@ int _myputchar(char c)
 }
 
 /**
- * buffer - Save the character in a buffer
- * @c: Character
- *
+ * buffer - Saves c in a buffer
+ * @c: Cha
  * Return: 1
  **/
 int buffer(char c)
 {
-	static char buffering[1024];
-	static int i;
+	static char write_buffer[1024];
+	static int a;
 
-	if (c == -1 || i == 1024)
+	if (c == -1 || a == 1024)
 	{
-		write(1, buffering, i);
-		i = 0;
+		write(1, write_buffer, a);
+		a = 0;
 	}
 
 	if (c != -1)
-		buffering[i++] = c;
+		buffering[a++] = c;
 
 	return (1);
 }
