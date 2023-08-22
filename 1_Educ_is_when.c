@@ -1,6 +1,9 @@
 #include <stdarg.h>
 #include "main.h"
 
+/* Helper function to print an integer */
+int print_number(int num);
+
 /**
  * _printf - Custom printf function
  * @format: Format string with directives
@@ -18,35 +21,35 @@ int _printf(const char *format, ...)
      {
           if (*format == '%')
           {
-               format++;           // Move past '%'
-               if (*format == 'c') // Handle %c conversion specifier
+               format++;           /* Move past '%' */
+               if (*format == 'c') /* Handle %c conversion specifier */
                {
                     int c = va_arg(args, int);
                     printed_chars += _myputchar(c);
                }
-               else if (*format == 's') // Handle %s conversion specifier
+               else if (*format == 's') /* Handle %s conversion specifier */
                {
                     char *s = va_arg(args, char *);
                     if (s == NULL)
-                         s = "(null)"; // Print (null) for NULL strings
+                         s = "(null)"; /* Print (null) for NULL strings */
                     while (*s)
                     {
                          printed_chars += _myputchar(*s);
                          s++;
                     }
                }
-               else if (*format == 'd' || *format == 'i') // Handle %d and %i conversion specifiers
+               else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
                     int num = va_arg(args, int);
                     printed_chars += print_number(num);
                }
-               else if (*format == '%') // Handle %% conversion specifier
+               else if (*format == '%') /* Handle %% conversion specifier */
                {
                     printed_chars += _myputchar('%');
                }
                else
                {
-                    // Print the character as is if not a known specifier
+                    /* Print the character as is if not a known specifier */
                     printed_chars += _myputchar('%');
                     printed_chars += _myputchar(*format);
                }
@@ -63,17 +66,17 @@ int _printf(const char *format, ...)
      return printed_chars;
 }
 
-// Helper function to print an integer
+/* Helper function to print an integer */
 int print_number(int num)
 {
-     // Handle negative numbers
+     /* Handle negative numbers */
      if (num < 0)
      {
           _myputchar('-');
           num = -num;
      }
 
-     // Handle the digits of the number
+     /* Handle the digits of the number */
      int divisor = 1;
      while (num / divisor > 9)
      {
@@ -87,5 +90,5 @@ int print_number(int num)
           divisor /= 10;
      }
 
-     return 0; // Return value doesn't matter here
+     return 0; /* Return value doesn't matter here */
 }
