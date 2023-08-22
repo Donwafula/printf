@@ -1,8 +1,11 @@
 #include <stdarg.h>
 #include "main.h"
 
+/* Helper function to print a character */
+int _myputchar(char c);
+
 /* Helper function to print an integer */
-int print_number(int);
+int print_number(int num);
 
 /**
  * _printf - Custom printf function
@@ -40,8 +43,9 @@ int _printf(const char *format, ...)
                }
                else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
-                    /* Handle negative numbers */
                     int num = va_arg(args, int);
+
+                    /* Handle negative numbers */
                     if (num < 0)
                     {
                          _myputchar('-');
@@ -81,6 +85,13 @@ int _printf(const char *format, ...)
 
      va_end(args);
      return printed_chars;
+}
+
+/* Helper function to print a character */
+int _myputchar(char c)
+{
+     write(1, &c, 1);
+     return 1;
 }
 
 /* Helper function to print an integer */
