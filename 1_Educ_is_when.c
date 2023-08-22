@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 
      while (*format)
      {
+          int num; /* Declare num here */
           if (*format == '%')
           {
                format++;           /* Move past '%' */
@@ -38,7 +39,7 @@ int _printf(const char *format, ...)
                else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
                     /* Handle negative numbers */
-                    int num = va_arg(args, int);
+                    num = va_arg(args, int);
                     if (num < 0)
                     {
                          _myputchar('-');
@@ -46,7 +47,7 @@ int _printf(const char *format, ...)
                     }
 
                     /* Handle the digits of the number */
-                    int divisor = 1;
+                    int divisor = 1; /* Declare divisor here */
                     while (num / divisor > 9)
                     {
                          divisor *= 10;
