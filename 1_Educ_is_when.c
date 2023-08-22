@@ -19,8 +19,6 @@ int _printf(const char *format, ...)
 
      while (*format)
      {
-          int divisor; // Declare divisor here
-
           if (*format == '%')
           {
                format++;           /* Move past '%' */
@@ -50,7 +48,8 @@ int _printf(const char *format, ...)
                          num = -num;
                     }
 
-                    divisor = 1; // Initialize divisor here
+                    /* Handle the digits of the number */
+                    int divisor = 1;
                     while (num / divisor > 9)
                     {
                          divisor *= 10;
@@ -85,7 +84,7 @@ int _printf(const char *format, ...)
 }
 
 /* Helper function to print an integer */
-int print_number(int num)
+int print_number(int)
 {
      return 0; /* Return value doesn't matter here */
 }
