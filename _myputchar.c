@@ -27,7 +27,7 @@ int buffer(char c)
 	}
 
 	if (c != -1)
-		buffering[a++] = c;
+		write_buffer[a++] = c;
 
 	return (1);
 }
