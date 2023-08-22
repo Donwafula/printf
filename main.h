@@ -3,8 +3,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include <unistd.h>
+#include <unistd.>
 
+int _printf(const char *format, ...);
 int _myputchar(char c);
 int handle_char(va_list list);
 int handle_int(va_list list);
