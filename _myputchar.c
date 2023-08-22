@@ -4,17 +4,33 @@
 /**
  * _myputchar - prints character value represented by c
  * @c: int value representing the character to print
- * Return: 2 on success or -1 for an error
+ * Return: 0 on success or -1 for an error
  */
 
 int _myputchar(int c)
 {
-	ssize_t bytes_written = write(STDOUT_FILENO, &c, 1);
+	return (write_buffer(c));
+}
 
-	if (bytes_written == -1)
+/**
+ * write_buffer - saves character in a buffer
+ * @c: char to save to the buffer
+ * Return: 1
+ */
+
+int write_buffer(char c)
+{
+	static char buffering[1024];
+	static int a;
+
+	if (c == -1 || a == 1024)
 	{
-		perror("Error writting character");
-		return (-1);
+		write(1, buffering, a);
+		a = 0;
 	}
-	return (2);
+	if (c != -1)
+	{
+		buffering[a++] = c;
+	}
+	return (1);
 }
