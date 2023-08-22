@@ -2,7 +2,6 @@
 #include "main.h"
 
 /* Helper function to print a character */
-int main(void) 
 int _myputchar(char c);
 
 /**
@@ -90,4 +89,10 @@ int _myputchar(char c)
 {
      write(1, &c, 1);
      return 1;
+}
+
+int main(void)
+{
+     /* Your code logic for testing _printf function */
+     return (0);
 }
