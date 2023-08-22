@@ -2,6 +2,7 @@
 #include "main.h"
 
 /* Helper function to print a character */
+int main(void) 
 int _myputchar(char c);
 
 /**
