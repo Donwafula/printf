@@ -1,4 +1,5 @@
 #include "main.h"
+int buffer(char c);
 
 /**
  * _myputchar - writes c to stdout
