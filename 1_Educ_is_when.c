@@ -41,10 +41,29 @@ int _printf(const char *format, ...)
                else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
                     int num = va_arg(args, int);
-                    printed_chars += print_number(num);
-               }
-               else if (*format == '%') /* Handle %% conversion specifier */
-               {
+                    /* Declare the divisor at the beginning of the block */
+                    int divisor = 1;
+
+                    /* Handle negative numbers */
+                    if (num < 0)
+                    {
+                         _myputchar('-');
+                         num = -num;
+                    }
+
+                    /* Handle the digits of the number */
+                    while (num / divisor > 9)
+                    {
+                         divisor *= 10;
+                    }
+
+                    while (divisor > 0)
+                    {
+                         _myputchar('0' + (num / divisor));
+                         num %= divisor;
+                         divisor /= 10;
+                    }
+
                     printed_chars += _myputchar('%');
                }
                else
@@ -69,28 +88,5 @@ int _printf(const char *format, ...)
 /* Helper function to print an integer */
 int print_number(int num)
 {
-     /* Handle negative numbers */
-     if (num < 0)
-     {
-          _myputchar('-');
-          num = -num;
-     }
-
-     /* Declare the divisor at the beginning of the block */
-     int divisor = 1;
-
-     /* Handle the digits of the number */
-     while (num / divisor > 9)
-     {
-          divisor *= 10;
-     }
-
-     while (divisor > 0)
-     {
-          _myputchar('0' + (num / divisor));
-          num %= divisor;
-          divisor /= 10;
-     }
-
      return 0; /* Return value doesn't matter here */
 }
