@@ -76,8 +76,10 @@ int print_number(int num)
           num = -num;
      }
 
-     /* Handle the digits of the number */
+     /* Declare the divisor at the beginning of the block */
      int divisor = 1;
+
+     /* Handle the digits of the number */
      while (num / divisor > 9)
      {
           divisor *= 10;
