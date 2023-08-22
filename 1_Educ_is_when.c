@@ -1,6 +1,9 @@
 #include <stdarg.h>
 #include "main.h"
 
+/* Helper function to print an integer */
+int print_number(int num);
+
 /**
  * _printf - Custom printf function
  * @format: Format string with directives
@@ -16,7 +19,8 @@ int _printf(const char *format, ...)
 
      while (*format)
      {
-          int num; /* Declare num here */
+          int divisor; // Declare divisor here
+
           if (*format == '%')
           {
                format++;           /* Move past '%' */
@@ -39,15 +43,14 @@ int _printf(const char *format, ...)
                else if (*format == 'd' || *format == 'i') /* Handle %d and %i conversion specifiers */
                {
                     /* Handle negative numbers */
-                    num = va_arg(args, int);
+                    int num = va_arg(args, int);
                     if (num < 0)
                     {
                          _myputchar('-');
                          num = -num;
                     }
 
-                    /* Handle the digits of the number */
-                    int divisor = 1; /* Declare divisor here */
+                    divisor = 1; // Initialize divisor here
                     while (num / divisor > 9)
                     {
                          divisor *= 10;
@@ -59,9 +62,7 @@ int _printf(const char *format, ...)
                          num %= divisor;
                          divisor /= 10;
                     }
-               }
-               else if (*format == '%') /* Handle %% conversion specifier */
-               {
+
                     printed_chars += _myputchar('%');
                }
                else
@@ -81,4 +82,10 @@ int _printf(const char *format, ...)
 
      va_end(args);
      return printed_chars;
+}
+
+/* Helper function to print an integer */
+int print_number(int num)
+{
+     return 0; /* Return value doesn't matter here */
 }
