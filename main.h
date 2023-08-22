@@ -27,6 +27,8 @@ char *str_upper(char *s);
 int handle_hex_upper(va_list list);
 int percent_handler(const char *str, va_list list, int *i);
 int _handle(const char *str, va_list list);
+int _myputchar(int c);
+int _printf(const char *format, ...);
 
 /**
  * struct _format - Typedef struct

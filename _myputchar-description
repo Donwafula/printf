@@ -1,0 +1,47 @@
+Breakdown of how this custom putchar fuction works:
+#include <unistd.h>
+#include <stdio.h>
+
+int _myputchar(int c)
+{
+	ssize_t bytes_written = write(STDOUT_FILENO, &c, 1);
+	if (bytes_written == -1)
+	{
+		perror("Error writing character");
+		return (-1);
+	}
+	return (0);
+}
+
+==>#include <unistd.h> // for the write function
+==>#include <stdio.h>  // for perror
+Are the header file includes. <unistd.h> is included for the write() system call, and <stdio.h> is included for the perror() function.
+
+==>int _myputchar(int c) {
+Defining a function named _myputchar that takes an int argument c that represents the ASCII value of the character to print.
+
+
+==>ssize_t bytes_written = write(STDOUT_FILENO, &c, 1);
+Inside the function, we're using the write() system call to write data to a file descriptor. The arguments are as follows:
+
+STDOUT_FILENO: This is a predefined constant representing the file descriptor for the standard output (console).
+&c: This is the address of the integer c. The write() function expects a pointer to the data you want to write.
+1: This argument indicates that we want to write 1 byte of data.
+The write() function returns the number of bytes written or -1 if an error occurs. We're storing this return value in the variable bytes_written of type ssize_t.
+
+==>if (bytes_written == -1) {
+	perror("Error writing character");
+	return -1; // Return an error code
+    }
+In this section:
+
+We're using an if statement to check whether the return value bytes_written is equal to -1. This indicates that an error occurred during the writing process.
+
+If an error is detected, we use the perror() function to print an error message to the standard error stream along with a description of the error based on the value of errno.
+
+We return an error code -1 to indicate that an error occurred. This allows the calling code to recognize and handle the error.
+
+
+==>return 0; // Success
+   }
+Finally, if the writing process was successful (i.e., no error occurred), we return 0 to indicate success. The calling code can use this return value to determine whether the _myputchar function was executed successfully.
