@@ -18,13 +18,13 @@ int encode_rot13(char *c)
 		{
 			if (c[a] == n[b])
 			{
-				_putchar(r[b]);
+				_myputchar(r[b]);
 				break;
 			}
 		}
 
 		if (!n[b])
-			_putchar(c[a]);
+			_myputchar(c[a]);
 	}
 	return (a);
 }
