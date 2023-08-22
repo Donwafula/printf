@@ -2,7 +2,7 @@
 #include "main.h"
 
 /* Helper function to print an integer */
-int print_number(int num);
+int print_number(int);
 
 /**
  * _printf - Custom printf function
@@ -84,7 +84,7 @@ int _printf(const char *format, ...)
 }
 
 /* Helper function to print an integer */
-int print_number(int)
+int print_number(int num)
 {
      return 0; /* Return value doesn't matter here */
 }
