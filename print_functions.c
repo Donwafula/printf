@@ -5,9 +5,9 @@
 int _myputchar(char c)
 {
      if (write(1, &c, 1) == 1)
-          return 1; // Successfully wrote 1 character
+          return 1; /* Successfully wrote 1 character */
      else
-          return -1; // Failed to write character
+          return -1; /* Failed to write character */
 }
 
 int print_char(char c)
@@ -29,13 +29,13 @@ int print_string(char *s)
 int print_int(int num)
 {
      int printed_chars = 0;
-     // Handle negative numbers
+     /* Handle negative numbers */
      if (num < 0)
      {
           printed_chars += _myputchar('-');
           num = -num;
      }
-     // Convert integer to string and print each digit
+     /* Convert integer to string and print each digit */
      if (num == 0)
      {
           printed_chars += _myputchar('0');

@@ -29,6 +29,11 @@ int print_string(char *s)
      return printed_chars;
 }
 
+int print_S(char *s)
+{
+     return 0;
+}
+
 int print_uint(unsigned int n)
 {
      int printed_chars = 0;
