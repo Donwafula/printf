@@ -56,21 +56,21 @@ int print_uint(unsigned int n)
 
 int print_octal(unsigned int n)
 {
-     // Implement printing octal numbers
-     // and return the number of printed characters
-     return 0; // Placeholder
+     /* Implement printing octal numbers */
+     /* and return the number of printed characters */
+     return 0; /* Placeholder */
 }
 
 int print_hex(unsigned int num, int uppercase)
 {
-     // Implement printing hexadecimal numbers
-     // and return the number of printed characters
-     return 0; // Placeholder
+     /* Implement printing hexadecimal numbers */
+     /* and return the number of printed characters */
+     return 0; /* Placeholder */
 }
 
 int print_pointer(void *ptr)
 {
-     // Implement printing a pointer
-     // and return the number of printed characters
-     return 0; // Placeholder
+     /* Implement printing a pointer */
+     /* and return the number of printed characters */
+     return 0; /* Placeholder */
 }
