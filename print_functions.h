@@ -7,8 +7,7 @@ int print_int(int num);
 int print_S(char *s);
 int print_uint(unsigned int n);
 int print_octal(unsigned int n);
-int print_hex(unsigned int n, int uppercase);
-int print_hex(unsigned int num);
+int print_hex(unsigned int n, int num, int uppercase);
 int print_pointer(void *ptr);
 
 #endif /* PRINT_FUNCTIONS_H */

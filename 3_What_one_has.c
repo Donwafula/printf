@@ -50,12 +50,16 @@ int print_octal(unsigned int n)
 {
      /* Implement printing octal numbers */
      /* and return the number of printed characters */
-     return 0; /* Replace this with your implementation */
 }
 
 int print_hex(unsigned int n, int uppercase)
 {
      /* Implement printing hexadecimal numbers */
      /* and return the number of printed characters */
-     return 0; /* Replace this with your implementation */
+}
+
+int print_pointer(void *ptr)
+{
+     /* Implement printing a pointer */
+     /* and return the number of printed characters */
 }
