@@ -1,12 +1,12 @@
-// number_functions.c
 #include "main.h"
 
-// Helper functions to print a hexadecimal number (lowercase or uppercase)
+
 /**
  * handle_hex_lower - print a num in hexadecimal format
  * @list: num
  * Return: len
- **/
+ */
+
 int handle_hex_lower(va_list list)
 {
 	char *c;

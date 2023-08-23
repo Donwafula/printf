@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	len = _handle(format, args);
 
-	_putchar(-1);
+	_myputchar(-1);
 	va_end(args);
 
 	return (len);
