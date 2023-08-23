@@ -1,57 +1,87 @@
 // number_functions.c
-
 #include "main.h"
 
-// Helper function to print an unsigned number with the given base
-int print_unsigned_number(unsigned int num, int base)
+/**
+ * handle_uns - Prints unsigned int
+ * @list: number to print
+ * Return: len of the number
+ **/
+int handle_uns(va_list list)
 {
-     // Handle the digits of the number
-     int printed_chars = 0;
-     if (num == 0)
-     {
-          printed_chars += _myputchar('0');
-     }
-     else
-     {
-          char buffer[20];
-          int index = 0;
-          while (num > 0)
-          {
-               int digit = num % base;
-               buffer[index++] = (digit < 10) ? ('0' + digit) : ('a' + digit - 10);
-               num /= base;
-          }
-          while (index > 0)
-          {
-               printed_chars += _myputchar(buffer[--index]);
-          }
-     }
-     return printed_chars;
+	char *c;
+	int n;
+
+	c = int_ascii(va_arg(list, unsigned int), 10);
+
+	n = print((c != NULL) ? c : "NULL");
+
+	return (n);
+}
+// Helper functions to print a hexadecimal number (lowercase or uppercase)
+/**
+ * handle_hex_lower - print a num in hexadecimal format
+ * @list: num
+ * Return: len
+ **/
+int handle_hex_lower(va_list list)
+{
+	char *c;
+	int len;
+
+	c = int_ascii(va_arg(list, unsigned int), 16);
+
+	len = print((c != NULL) ? c : "NULL");
+
+	return (len);
 }
 
-// Helper function to print a hexadecimal number (lowercase or uppercase)
-int print_hexadecimal(unsigned int num, int uppercase)
+int is_lower(char);
+char *str_upper(char *s);
+
+/**
+ * handle_hex_upper - prints a num in hexadecimal format
+ * @list: num to print
+ * Return: len
+ */
+int handle_hex_upper(va_list list)
 {
-     int base = (uppercase) ? 'A' : 'a';
-     int printed_chars = 0;
-     char buffer[20];
-     int index = 0;
-     if (num == 0)
-     {
-          printed_chars += _myputchar('0');
-     }
-     else
-     {
-          while (num > 0)
-          {
-               int digit = num % 16;
-               buffer[index++] = (digit < 10) ? ('0' + digit) : (base + digit - 10);
-               num /= 16;
-          }
-          while (index > 0)
-          {
-               printed_chars += _myputchar(buffer[--index]);
-          }
-     }
-     return printed_chars;
+	char *c;
+	int len;
+
+	c = int_ascii(va_arg(list, unsigned int), 16);
+	c = str_upper(c);
+
+	len = print((c != NULL) ? c : "NULL");
+
+	return (len);
+}
+
+/**
+ * is_lower - check if the charis in lowercase
+ * @c: char
+ * Return: 1 or 0
+ **/
+int is_lower(char c)
+{
+	return (c >= 'a' && c <= 'z');
+}
+
+/**
+ * str_upper - change the str to uppercase
+ * @s: str
+ * Return: str uppercase
+ **/
+char *str_upper(char *s)
+{
+	int a;
+
+	for (a = 0; s[a] != '\0'; a++)
+	{
+		if (is_lower(s[a]))
+		{
+			s[a] = s[a] - 32;
+		}
+	}
+
+	return (s);
 }
