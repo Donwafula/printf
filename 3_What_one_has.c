@@ -5,16 +5,22 @@
 int print_char(char c)
 {
      if (write(1, &c, 1) == 1)
+     {
           return 1; /* Successfully wrote 1 character */
+     }
      else
+     {
           return -1; /* Failed to write character */
+     }
 }
 
 int print_string(char *s)
 {
      int printed_chars = 0;
      if (s == NULL)
+     {
           s = "(null)";
+     }
      while (*s)
      {
           printed_chars += print_char(*s);
@@ -26,11 +32,13 @@ int print_string(char *s)
 int print_uint(unsigned int n)
 {
      int printed_chars = 0;
-     if (n == 0)
-          return print_char('0');
-
      char buffer[32]; /* Buffer to hold the string representation of the number */
      int i = 0;
+
+     if (n == 0)
+     {
+          return print_char('0');
+     }
 
      while (n > 0)
      {
@@ -48,18 +56,21 @@ int print_uint(unsigned int n)
 
 int print_octal(unsigned int n)
 {
-     /* Implement printing octal numbers */
-     /* and return the number of printed characters */
+     // Implement printing octal numbers
+     // and return the number of printed characters
+     return 0; // Placeholder
 }
 
-int print_hex(unsigned int n, int uppercase)
+int print_hex(unsigned int num, int uppercase)
 {
-     /* Implement printing hexadecimal numbers */
-     /* and return the number of printed characters */
+     // Implement printing hexadecimal numbers
+     // and return the number of printed characters
+     return 0; // Placeholder
 }
 
 int print_pointer(void *ptr)
 {
-     /* Implement printing a pointer */
-     /* and return the number of printed characters */
+     // Implement printing a pointer
+     // and return the number of printed characters
+     return 0; // Placeholder
 }
