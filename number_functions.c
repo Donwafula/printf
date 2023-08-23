@@ -1,22 +1,6 @@
 // number_functions.c
 #include "main.h"
 
-/**
- * handle_uns - Prints unsigned int
- * @list: number to print
- * Return: len of the number
- **/
-int handle_uns(va_list list)
-{
-	char *c;
-	int n;
-
-	c = int_ascii(va_arg(list, unsigned int), 10);
-
-	n = print((c != NULL) ? c : "NULL");
-
-	return (n);
-}
 // Helper functions to print a hexadecimal number (lowercase or uppercase)
 /**
  * handle_hex_lower - print a num in hexadecimal format
